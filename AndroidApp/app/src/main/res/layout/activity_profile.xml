@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".profile.ProfileActivity">
+
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/profile_toolbar"/>
+
+    <TextView
+        android:id="@+id/lbl_first_priority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/connection_1st_priority"
+        android:layout_below="@id/profile_toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <RadioGroup
+        android:id="@+id/rg_first_priority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lbl_first_priority"
+        android:orientation="horizontal"
+        android:checkedButton="@+id/rb_first_priority_wlan">
+
+        <RadioButton
+            android:id="@id/rb_first_priority_wlan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onPriorityChecked"
+            android:text="@string/wlan" />
+
+        <RadioButton
+            android:id="@+id/rb_first_priority_btooth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onPriorityChecked"
+            android:text="@string/bluetooth" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/lbl_second_priority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/connection_2nd_priority"
+        android:layout_below="@id/rg_first_priority"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <RadioGroup
+        android:id="@+id/rg_second_priority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lbl_second_priority"
+        android:orientation="horizontal"
+        android:checkedButton="@+id/rb_second_priority_btooth">
+
+        <RadioButton
+            android:id="@+id/rb_second_priority_wlan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onPriorityChecked"
+            android:text="@string/wlan" />
+        <RadioButton
+            android:id="@id/rb_second_priority_btooth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bluetooth"
+            android:onClick="onPriorityChecked" />
+        <RadioButton
+            android:id="@+id/rb_second_priority_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/none" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/lbl_wireless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/wireless"
+        android:layout_below="@+id/btn_scanQRCode"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_wlanname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lbl_wireless"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_wlanname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:hint="@string/computers_network_name"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_wlanport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_input_wlanname"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_wlanport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:hint="@string/tcp_port"
+            android:inputType="number"
+            android:maxLength="5"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/lbl_bluetooth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/bluetooth"
+        android:layout_below="@id/text_input_wlanport"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_bluetooth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lbl_bluetooth"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_blutoothname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:hint="@string/computers_bluetooth_name"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@id/btn_scanQRCode"
+        android:text="@string/btn_scanQRCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rg_second_priority"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="scanQRCode" />
+
+    <Button
+        android:id="@+id/btn_connect"
+        android:text="@string/connect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="connect"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
